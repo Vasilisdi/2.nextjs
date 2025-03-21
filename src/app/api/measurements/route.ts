@@ -1,4 +1,4 @@
-import { supabaseAdmin } from "@/lib/supabase"; // Assuming you have a supabase client setup
+import { supabaseAdmin } from '../../lib/supabase';
 
 export async function GET() {
   // Fetch the data from the 'measurements' table
