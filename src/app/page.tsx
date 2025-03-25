@@ -1,28 +1,33 @@
-'use client';  // Add this at the top
+'use client';
 
 import { useEffect, useState } from 'react';
 
+type Measurement = {
+  id: number;
+  value: number;
+  timestamp: string;
+};
+
 export default function Home() {
-  const [measurements, setMeasurements] = useState<any[]>([]);
+  const [measurements, setMeasurements] = useState<Measurement[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Fetch data from the measurements API
     const fetchData = async () => {
       try {
         const res = await fetch('/api/measurements');
         if (!res.ok) {
           throw new Error('Error fetching data');
         }
-        const data = await res.json();
+        const data: Measurement[] = await res.json();
         setMeasurements(data);
       } catch (err) {
-        setError(err.message);
+        setError((err as Error).message);
       }
     };
 
     fetchData();
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -35,10 +40,10 @@ export default function Home() {
         <p>No measurements found</p>
       ) : (
         <ul>
-          {measurements.map((measurement: any, index: number) => (
+          {measurements.map((measurement, index) => (
             <li key={index}>
-              {/* Display the relevant measurement data */}
-              {JSON.stringify(measurement)}
+              {/* Display the measurement data */}
+              ID: {measurement.id}, Value: {measurement.value}, Timestamp: {measurement.timestamp}
             </li>
           ))}
         </ul>
