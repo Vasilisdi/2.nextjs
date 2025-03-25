@@ -19,6 +19,10 @@ export async function GET() {
     });
   } catch (err) {
     console.error("Unexpected error:", err);
-    return new Response("Unexpected error: " + err.message, { status: 500 });
+
+    // Cast err to Error type to access message
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+
+    return new Response("Unexpected error: " + errorMessage, { status: 500 });
   }
 }
