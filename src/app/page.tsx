@@ -116,7 +116,6 @@ export default function Home() {
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
             </LineChart>
           </ResponsiveContainer>
@@ -130,7 +129,6 @@ export default function Home() {
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
             </LineChart>
           </ResponsiveContainer>
@@ -144,7 +142,6 @@ export default function Home() {
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
             </LineChart>
           </ResponsiveContainer>
@@ -158,7 +155,6 @@ export default function Home() {
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
             </LineChart>
           </ResponsiveContainer>
