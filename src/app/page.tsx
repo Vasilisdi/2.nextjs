@@ -69,30 +69,24 @@ export default function Home() {
 
   const grouped = getHealthyAndCurrent(measurements);
 
-  // --- Helper: combine into chart data ---
   const combineData = (
     healthy: Measurement | undefined,
     current: Measurement | undefined
   ) => {
     if (!healthy && !current) return [];
 
-    const dataMap: Record<number, { frequency: number; healthyValue?: number; currentValue?: number }> = {};
+    const length = healthy ? healthy.values.length : current!.values.length;
+    const combined: { frequency: number; healthyValue?: number; currentValue?: number }[] = [];
 
-    if (healthy) {
-      healthy.frequencies.forEach((freq, i) => {
-        if (!dataMap[freq]) dataMap[freq] = { frequency: freq };
-        dataMap[freq].healthyValue = healthy.values[i];
+    for (let i = 0; i < length; i++) {
+      combined.push({
+        frequency: healthy?.frequencies[i] ?? current!.frequencies[i],
+        healthyValue: healthy?.values[i],
+        currentValue: current?.values[i]
       });
     }
 
-    if (current) {
-      current.frequencies.forEach((freq, i) => {
-        if (!dataMap[freq]) dataMap[freq] = { frequency: freq };
-        dataMap[freq].currentValue = current.values[i];
-      });
-    }
-
-    return Object.values(dataMap).sort((a, b) => a.frequency - b.frequency);
+    return combined;
   };
 
   const xData = combineData(grouped.X?.healthy, grouped.X?.current);
@@ -116,7 +110,8 @@ export default function Home() {
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" dot={true}/>
+              <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" dot={true} />
             </LineChart>
           </ResponsiveContainer>
 
@@ -129,6 +124,7 @@ export default function Home() {
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
             </LineChart>
           </ResponsiveContainer>
@@ -142,6 +138,7 @@ export default function Home() {
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
             </LineChart>
           </ResponsiveContainer>
@@ -155,6 +152,7 @@ export default function Home() {
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
             </LineChart>
           </ResponsiveContainer>
