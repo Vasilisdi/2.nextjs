@@ -58,8 +58,6 @@ export default function Home() {
     }));
   };
 
-  // Get the combined data once
-  const chartData = combineData();
 
   return (
     <div>
@@ -73,7 +71,7 @@ export default function Home() {
           {/* Chart for X, Y, Z axis data */}
           <h2>Individual Axes</h2>
           <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={chartData}>
+            <LineChart data={combineData()}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
@@ -88,7 +86,7 @@ export default function Home() {
           {/* Chart for Magnitude data */}
           <h2>Overall Magnitude</h2>
           <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={chartData}>
+            <LineChart data={combineData()}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
