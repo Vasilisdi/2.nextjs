@@ -58,20 +58,21 @@ export default function Home() {
     }));
   };
 
+  const chartData = combineData(); // <-- define it once outside JSX
 
   return (
     <div>
       <h1>Vibration Frequency Dashboard</h1>
       {measurements.length === 0 ? (
         <p>Loading measurements...</p>
-      ) : chartData.length === 0 ? ( // Check if combineData returned nothing
+      ) : chartData.length === 0 ? ( // now works because chartData is defined
         <p>Incomplete data found. Waiting for all measurements (X, Y, Z, Magnitude)...</p>
       ) : (
         <>
           {/* Chart for X, Y, Z axis data */}
           <h2>Individual Axes</h2>
           <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={combineData()}>
+            <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
@@ -86,13 +87,12 @@ export default function Home() {
           {/* Chart for Magnitude data */}
           <h2>Overall Magnitude</h2>
           <ResponsiveContainer width="100%" height={400}>
-            <LineChart data={combineData()}>
+            <LineChart data={chartData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
               <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              {/* FIXED TYPO: changed 'magnitute' to 'magnitude' */}
               <Line type="monotone" dataKey="magnitude" stroke="#0000FF" name="Magnitude" dot={false} />
             </LineChart>
           </ResponsiveContainer>
@@ -100,4 +100,4 @@ export default function Home() {
       )}
     </div>
   );
-}
+};
