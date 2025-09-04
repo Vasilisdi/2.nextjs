@@ -94,6 +94,7 @@ export default function Home() {
   const zData = combineData(grouped.Z?.healthy, grouped.Z?.current);
   const magnitudeData = combineData(grouped.Magnitude?.healthy, grouped.Magnitude?.current);
 
+  
   return (
     <div>
       <h1>Vibration Frequency Dashboard</h1>
