@@ -109,7 +109,7 @@ export default function Home() {
         <>
           {/* X Axis */}
           <h2>X Axis</h2>
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="100%" height={700}>
             <LineChart data={xData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
@@ -123,7 +123,7 @@ export default function Home() {
 
           {/* Y Axis */}
           <h2>Y Axis</h2>
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="100%" height={700}>
             <LineChart data={yData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
@@ -137,7 +137,7 @@ export default function Home() {
 
           {/* Z Axis */}
           <h2>Z Axis</h2>
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="100%" height={700}>
             <LineChart data={zData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
@@ -151,7 +151,7 @@ export default function Home() {
 
           {/* Magnitude */}
           <h2>Overall Magnitude</h2>
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="100%" height={700}>
             <LineChart data={magnitudeData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
