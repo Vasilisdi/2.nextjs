@@ -108,7 +108,7 @@ export default function Home() {
             <LineChart data={xData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'Power', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
               <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={3} />
@@ -122,7 +122,7 @@ export default function Home() {
             <LineChart data={yData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'Power', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
               <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={3}/>
@@ -136,7 +136,7 @@ export default function Home() {
             <LineChart data={zData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'Power', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
               <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={3}/>
@@ -150,7 +150,7 @@ export default function Home() {
             <LineChart data={magnitudeData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Amplitude', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'Power', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
               <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={3}/>
