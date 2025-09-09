@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine} from 'recharts';
 
 type Measurement = {
   id: string;
@@ -108,11 +108,12 @@ export default function Home() {
             <LineChart data={xData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Power', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'Amplitude [g]', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={3} />
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5"  strokeOpacity={0.6} />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
+              <ReferenceLine y={1} stroke="yellow" strokeDasharray="3 3" label="1 g Warning" />
             </LineChart>
           </ResponsiveContainer>
 
@@ -122,11 +123,12 @@ export default function Home() {
             <LineChart data={yData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Power', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'Amplitude [g]', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={3}/>
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5"  strokeOpacity={0.6} />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
+              <ReferenceLine y={1} stroke="yellow" strokeDasharray="3 3" label="1 g Warning" />
             </LineChart>
           </ResponsiveContainer>
 
@@ -136,11 +138,12 @@ export default function Home() {
             <LineChart data={zData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Power', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'Amplitude [g]', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={3}/>
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5"  strokeOpacity={0.6} />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
+              <ReferenceLine y={1} stroke="yellow" strokeDasharray="3 3" label="1 g Warning" />
             </LineChart>
           </ResponsiveContainer>
 
@@ -150,11 +153,12 @@ export default function Home() {
             <LineChart data={magnitudeData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Power', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'Amplitude [g]', angle: -90, position: 'insideLeft' }} />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={3}/>
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5"  strokeOpacity={0.6} />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
+              <ReferenceLine y={1} stroke="yellow" strokeDasharray="3 3" label="1 g Warning" />
             </LineChart>
           </ResponsiveContainer>
         </>
