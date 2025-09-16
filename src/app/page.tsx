@@ -94,69 +94,143 @@ export default function Home() {
   const zData = combineData(grouped.Z?.healthy, grouped.Z?.current);
   const magnitudeData = combineData(grouped.Magnitude?.healthy, grouped.Magnitude?.current);
 
+  // Custom styles for axis labels
+  const axisLabelStyle = {
+    fontSize: '16px',
+    fontWeight: 'bold',
+    fill: '#333'
+  };
 
   return (
-    <div>
-      <h1>Vibration Frequency Dashboard</h1>
+    <div style={{ backgroundColor: 'white', padding: '20px' }}>
+      <h1 style={{ color: '#333' }}>Vibration Frequency Dashboard</h1>
       {measurements.length === 0 ? (
         <p>Loading measurements...</p>
       ) : (
         <>
           {/* X Axis */}
-          <h2>X Axis</h2>
+          <h2 style={{ color: '#333' }}>X Axis</h2>
           <ResponsiveContainer width="100%" height={700}>
             <LineChart data={xData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Magnitude [g]', angle: -90, position: 'insideLeft' }} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+              <XAxis 
+                dataKey="frequency" 
+                label={{ 
+                  value: 'Frequency (Hz)', 
+                  position: 'insideBottom', 
+                  offset: -5, 
+                  style: axisLabelStyle 
+                }} 
+                tick={{ fontSize: 12, fill: '#333' }}
+              />
+              <YAxis 
+                label={{ 
+                  value: 'Magnitude [g]', 
+                  angle: -90, 
+                  position: 'insideLeft', 
+                  style: axisLabelStyle 
+                }} 
+                tick={{ fontSize: 12, fill: '#333' }}
+              />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5"  strokeOpacity={0.6} />
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5" strokeOpacity={0.6} />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
               <ReferenceLine y={1} stroke="yellow" strokeDasharray="3 3" label="1 g Warning" />
             </LineChart>
           </ResponsiveContainer>
 
           {/* Y Axis */}
-          <h2>Y Axis</h2>
+          <h2 style={{ color: '#333' }}>Y Axis</h2>
           <ResponsiveContainer width="100%" height={700}>
             <LineChart data={yData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Magnitude [g]', angle: -90, position: 'insideLeft' }} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+              <XAxis 
+                dataKey="frequency" 
+                label={{ 
+                  value: 'Frequency (Hz)', 
+                  position: 'insideBottom', 
+                  offset: -5, 
+                  style: axisLabelStyle 
+                }} 
+                tick={{ fontSize: 12, fill: '#333' }}
+              />
+              <YAxis 
+                label={{ 
+                  value: 'Magnitude [g]', 
+                  angle: -90, 
+                  position: 'insideLeft', 
+                  style: axisLabelStyle 
+                }} 
+                tick={{ fontSize: 12, fill: '#333' }}
+              />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5"  strokeOpacity={0.6} />
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5" strokeOpacity={0.6} />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
               <ReferenceLine y={1} stroke="yellow" strokeDasharray="3 3" label="1 g Warning" />
             </LineChart>
           </ResponsiveContainer>
 
           {/* Z Axis */}
-          <h2>Z Axis</h2>
+          <h2 style={{ color: '#333' }}>Z Axis</h2>
           <ResponsiveContainer width="100%" height={700}>
             <LineChart data={zData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Magnitude [g]', angle: -90, position: 'insideLeft' }} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+              <XAxis 
+                dataKey="frequency" 
+                label={{ 
+                  value: 'Frequency (Hz)', 
+                  position: 'insideBottom', 
+                  offset: -5, 
+                  style: axisLabelStyle 
+                }} 
+                tick={{ fontSize: 12, fill: '#333' }}
+              />
+              <YAxis 
+                label={{ 
+                  value: 'Magnitude [g]', 
+                  angle: -90, 
+                  position: 'insideLeft', 
+                  style: axisLabelStyle 
+                }} 
+                tick={{ fontSize: 12, fill: '#333' }}
+              />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5"  strokeOpacity={0.6} />
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5" strokeOpacity={0.6} />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
               <ReferenceLine y={1} stroke="yellow" strokeDasharray="3 3" label="1 g Warning" />
             </LineChart>
           </ResponsiveContainer>
 
           {/* Magnitude */}
-          <h2>Overall Magnitude</h2>
+          <h2 style={{ color: '#333' }}>Overall Magnitude</h2>
           <ResponsiveContainer width="100%" height={700}>
             <LineChart data={magnitudeData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="frequency" label={{ value: 'Frequency (Hz)', position: 'insideBottom', offset: -5 }} />
-              <YAxis label={{ value: 'Magnitude [g]', angle: -90, position: 'insideLeft' }} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
+              <XAxis 
+                dataKey="frequency" 
+                label={{ 
+                  value: 'Frequency (Hz)', 
+                  position: 'insideBottom', 
+                  offset: -5, 
+                  style: axisLabelStyle 
+                }} 
+                tick={{ fontSize: 12, fill: '#333' }}
+              />
+              <YAxis 
+                label={{ 
+                  value: 'Magnitude [g]', 
+                  angle: -90, 
+                  position: 'insideLeft', 
+                  style: axisLabelStyle 
+                }} 
+                tick={{ fontSize: 12, fill: '#333' }}
+              />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5"  strokeOpacity={0.6} />
+              <Line type="monotone" dataKey="healthyValue" stroke="#8884d8" name="Healthy State" strokeWidth={2} strokeDasharray="5 5" strokeOpacity={0.6} />
               <Line type="monotone" dataKey="currentValue" stroke="#82ca9d" name="Current State" />
               <ReferenceLine y={1} stroke="yellow" strokeDasharray="3 3" label="1 g Warning" />
             </LineChart>
